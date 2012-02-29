@@ -27,25 +27,23 @@
                 </div>
 	
 	<div class="MedalContainer">
-	<div class="FlaxiBox">
-	<div class="top-left"></div>
-	<div class="top-right"></div>
-	<div class="inside">
-		
-		{{#resources}}
-		<div class="FlaxiBox_white">
+		<div class="FlaxiBox">
 			<div class="top-left"></div>
 			<div class="top-right"></div>
-				&nbsp;&nbsp;&nbsp;<a href="/mobileConfig?id={{id}}">Get Mobile Config for {{hostName}}</a><br/>
+			<div class="inside">
+				{{#resources}}
+					<div class="FlaxiBox_white">
+						<div class="top-left"></div>
+						<div class="top-right"></div>
+							&nbsp;&nbsp;&nbsp;<a href="/mobileConfig?id={{id}}">Get Mobile Config for {{hostName}}</a><br/>
+						<div class="bottom-left"></div>
+						<div class="bottom-right"></div>
+					</div>
+				{{/resources}}
+			</div>
 			<div class="bottom-left"></div>
 			<div class="bottom-right"></div>
 		</div>
-
-		{{/resources}}
-	</div>
-	<div class="bottom-left"></div>
-	<div class="bottom-right"></div>
-	</div>
 	</div>
 	</body>
 </html>

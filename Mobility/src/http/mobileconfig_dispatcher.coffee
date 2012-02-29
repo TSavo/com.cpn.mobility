@@ -37,7 +37,7 @@ getMobileConfig = (request, response, parameters)->
   id = parameters.id
   data = ""
   request = http.get  
-    host: '#{url}'
+    host: url
     headers: 
       'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
     port:8080
