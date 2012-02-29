@@ -16,11 +16,11 @@ listResources = (request, response, parameters) ->
   
   data = ""
   request = http.get  
-    host: 'control.telekom.cpncloud.net'
+    host: 'ims01.telekom.vsp'
     headers: 
       'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
     port:8080
-    path: "http://control.telekom.cpncloud.net:8080/Provision/resource"
+    path: "http://ims01.telekom.vsp:8080/Provision/resource"
     
   request.end()
   request.on 'response', (clientResponse) ->
@@ -37,11 +37,11 @@ getMobileConfig = (request, response, parameters)->
   id = parameters.id
   data = ""
   request = http.get  
-    host: 'control.telekom.cpncloud.net'
+    host: 'ims01.telekom.vsp'
     headers: 
       'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
     port:8080
-    path: "http://control.telekom.cpncloud.net:8080/Provision/resource/#{id}/mobileconfig"
+    path: "http://ims01.telekom.vsp:8080/Provision/resource/#{id}/mobileconfig"
     
   request.end()
   request.on 'response', (clientResponse) ->

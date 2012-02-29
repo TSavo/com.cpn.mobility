@@ -14,7 +14,6 @@ class TestCase
     @block(@assert)
     if @hasBeenRun
       return puts "WARNING!!!! Test cases should not be run more than once! Skipping the next test case in our suite... (Offending test case: #{@name})"
-
     @hasBeenRun = true
     suite.done(this)
     
