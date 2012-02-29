@@ -12,7 +12,7 @@ reportError = (response, error) ->
   response.write error.toString()
   response.end()
 
-url = "control.telekom.cpncloud.net"
+url = "ims01.telekom.vsp"
 listResources = (request, response, parameters) ->
   data = ""
   request = http.get  
