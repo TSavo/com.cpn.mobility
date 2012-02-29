@@ -1,10 +1,51 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="/css/StyleSheet.css" type="text/css" rel="stylesheet">
 	</head>
 	<body>
+	 <div class="HeaderContainer">
+
+                    <div class="Logo">
+
+                        <a title="ClearPath">ClearPath</a></div>
+
+                    <div class="RightTop">
+
+                        <div class="RightLogo">
+
+                            <a title="Cloud Security Gateway">Cloud Security Gateway</a></div>
+
+                        
+
+                    </div>
+
+                    <div class="Clr">
+
+                    </div>
+
+                </div>
+	
+	<div class="MedalContainer">
+	<div class="FlaxiBox">
+	<div class="top-left"></div>
+	<div class="top-right"></div>
+	<div class="inside">
+		
 		{{#resources}}
-			<a href="/mobileConfig?id={{id}}">Get Mobile Config for {{hostName}}</a><br/>
+		<div class="FlaxiBox_white">
+			<div class="top-left"></div>
+			<div class="top-right"></div>
+				&nbsp;&nbsp;&nbsp;<a href="/mobileConfig?id={{id}}">Get Mobile Config for {{hostName}}</a><br/>
+			<div class="bottom-left"></div>
+			<div class="bottom-right"></div>
+		</div>
+
 		{{/resources}}
+	</div>
+	<div class="bottom-left"></div>
+	<div class="bottom-right"></div>
+	</div>
+	</div>
 	</body>
 </html>

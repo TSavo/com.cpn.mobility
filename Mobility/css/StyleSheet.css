@@ -1,0 +1,565 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+    margin-left:auto;
+    margin-right:auto;
+    width:800px;
+}
+div, p, ul, li
+{
+    margin: 0;
+    padding: 0;
+}
+ul li
+{
+    list-style-type: none;
+}
+strong
+{
+    font-weight: bold;
+}
+
+input, select, textarea
+{
+    vertical-align: middle;
+}
+
+table
+{
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+}
+table td
+{
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+
+.Fleft
+{
+    float: left;
+}
+.Fright
+{
+    float: right;
+}
+.Clr
+{
+    clear: both;
+}
+h1, h2, h3, h4
+{
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+form
+{
+    height: 100%;
+}
+img
+{
+    border: 0;
+    vertical-align: bottom;
+}
+#Progress
+{
+    float: left;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.tableStyle
+{
+    width: 100%; /*	border: 0.5px solid #BECEDD; 	border-top: 1px; 	border-top-color: #BECEDD; 	border-left: 1px; 	border-left-color: #BECEDD;*/
+    background: #fff;
+    padding: 0px;
+    margin: 0px;
+    font-size: 8pt;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.tableHead
+{
+    width: 100%;
+    background-color: #F0F1F6;
+    padding: 0px;
+    margin: 0px;
+    font-size: 8pt;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    border-right: 1px solid #E2E6F2;
+    border-top: 1px solid #CDD0DF;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.tableHead a
+{
+    font-size: 8pt;
+    font-family: Verdana, Arial, Helvetica, sans-serif; /* color: #196d91; */
+    color: Blue;
+    text-decoration: none;
+}
+.LeftCorner
+{
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/Top_left_corner.gif) no-repeat top;
+    width: 14px;
+    height: 20px;
+}
+.RightCorner
+{
+    background: url(Images/Top_right_corner.gif) no-repeat top;
+    width: 14px;
+    height: 20px;
+}
+.TableBgSpread
+{
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/table_bg_1.gif) repeat-x;
+    line-height: 20px;
+}
+.grid-view
+{
+    padding: 0;
+    margin: 0;
+    font-family: "Verdana", "Arial", "Helvetica", sans-serif;
+    text-decoration: none;
+    font-size: 11px;
+    border: none 0px #E2E6F2;
+}
+
+.grid-view tr.header
+{
+    background-color: #F0F1F6;
+    height: 20px;
+    vertical-align: middle;
+    font-size: 11px;
+}
+
+.grid-view tr.normal
+{
+    background-color: #FFFFFF;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.grid-view tr.alternate
+{
+    background-color: #F9F9F9;
+    height: 20px;
+    vertical-align: middle;
+}
+.grid-view tr.edit
+{
+    background-color: #FFFFFF;
+    vertical-align: middle;
+}
+
+.grid-view tr.normal:hover, .grid-view tr.alternate:hover
+{
+    /*background-color: #E7DFF7;*/
+    background-color: #FFFFFF;
+}
+
+.grid-view tr.pager
+{
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/table_bg_1.gif) repeat-x;
+    line-height: 20px;
+    font-family: "Verdana", "Arial", "Helvetica", sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 11px;
+}
+.Wrapper
+{
+    margin: 0;
+    padding: 0 0 10px 10px;
+    width: 960px;
+}
+.HeaderContainer
+{
+    height: 107px;
+    display: block;
+    padding: 0;
+}
+/*Logo CSS*/
+.Logo
+{
+    float: left;
+}
+.Logo a, .Logo a:hover
+{
+    margin: 20px 0 0 0;
+    padding: 0;
+    text-indent: -5000px;
+    width: 273px;
+    height: 70px;
+    display: block;
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/logo.png) no-repeat left top;
+    float: left;
+}
+.RightTop
+{
+    float: right;
+}
+.RightLogo a, .RightLogo a:hover
+{
+    margin: 33px 0 0 0;
+    padding: 0;
+    text-indent: -5000px;
+    width: 429px;
+    height: 38px;
+    display: block;
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/cloud-logo.png) no-repeat left top;
+    float: right;
+}
+.Hlink
+{
+    text-align: right;
+    padding: 20px 0 0 0;
+}
+.Hlink a
+{
+    padding: 0 2px;
+}
+.Hlink a.select
+{
+    color: #a9a9a9;
+}
+.Clr
+{
+    clear: both;
+}
+.MedalContainer
+{
+    padding: 0;
+}
+/*Flaxi Box Css*/
+.FlaxiBox
+{
+    display: block;
+    position: relative;
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/mid-bg.gif) repeat-y left;
+}
+.top-left, .top-right
+{
+    background-image: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/corners.gif);
+    height: 16px;
+}
+
+.top-right a.arrow
+{
+    float: right;
+    margin: 16px 13px 0 0;
+}
+.bottom-left, .bottom-right
+{
+    background-image: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/corners.gif);
+    height: 16px;
+    font-size: 2px;
+}
+.top-left, .bottom-left
+{
+    margin-right: 16px;
+}
+.top-right
+{
+    margin-left: 16px;
+    margin-top: -16px;
+}
+.bottom-right
+{
+    margin-left: 16px;
+    margin-top: -16px;
+}
+.top-right
+{
+    background-position: 100% 0;
+}
+.bottom-left
+{
+    background-position: 0 -16px;
+    text-align: center;
+    padding: 0 0 0 16px;
+}
+.bottom-right
+{
+    background-position: 100% -16px;
+}
+.inside
+{
+    padding: 0 15px 0 0;
+    margin: 0 0 0 17px;
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/mid-bg.gif) repeat-y right;
+    position: relative;
+}
+.FlaxiBox_white
+{
+    display: block;
+    position: relative;
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/mid-bg1.gif) repeat-y left;
+}
+.FlaxiBox_white .top-left, .FlaxiBox_white .top-right
+{
+    background-image: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/corners1.gif);
+    height: 6px;
+}
+.FlaxiBox_white .top-right a.arrow
+{
+    float: right;
+    margin: 11px 13px 0 0;
+}
+.FlaxiBox_white .bottom-left, .FlaxiBox_white .bottom-right
+{
+    background-image: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/corners1.gif);
+    height: 6px;
+    font-size: 2px;
+}
+.FlaxiBox_white .top-left, .FlaxiBox_white .bottom-left
+{
+    margin-right: 6px;
+}
+.FlaxiBox_white .top-right
+{
+    margin-left: 11px;
+    margin-top: -6px;
+}
+.FlaxiBox_white .bottom-right
+{
+    margin-left: 11px;
+    margin-top: -6px;
+}
+.FlaxiBox_white .top-right
+{
+    background-position: 100% 0;
+}
+.FlaxiBox_white .bottom-left
+{
+    background-position: 0 -11px;
+    text-align: center;
+    padding: 0 0 0 11px;
+}
+.FlaxiBox_white .bottom-right
+{
+    background-position: 100% -11px;
+}
+.FlaxiBox_white .inside
+{
+    padding: 0 6px 0 0;
+    margin: 0 0 0 6px;
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/mid-bg1.gif) repeat-y right;
+    position: relative;
+}
+.insideCnt
+{
+    background: #fff url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/mid-inbg.gif) repeat-x top;
+    padding: 5px;
+}
+
+
+/*Flaxi Box Css End*/
+
+.form
+{
+    float: left;
+    padding: 14px 0 5px 10px;
+    line-height: 20px;
+}
+.form label
+{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 10px 0 0;
+    float: left;
+}
+.form input
+{
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/input-bg.gif) no-repeat left top;
+    height: 28px;
+    width: 204px; /*194px;*/
+    padding: 0px 0px 0px 0px;
+    border: 0 none;
+    float: left;
+    line-height: 28px;
+}
+.form a
+{
+    float: left;
+    margin: 4px 0 0 5px;
+}
+input.btnsubmit
+{
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/btn-submit.gif) no-repeat left top;
+    height: 19px;
+    line-height: 19px;
+    width: 70px;
+    border: 0 none;
+    padding: 0;
+    margin: 0 2px;
+    overflow: hidden;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+input.btnsubmitdisabled
+{
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/btn-submit-disabled.gif) no-repeat left top;
+    height: 19px;
+    line-height: 19px;
+    width: 70px;
+    border: 0 none;
+    padding: 0;
+    margin: 0 2px;
+    overflow: hidden;
+    color: #fff;
+    font-weight: bold;
+    cursor: progress;
+}
+
+input.btnreset
+{
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/btn-refresh.gif) no-repeat left top;
+    height: 19px;
+    line-height: 19px;
+    width: 70px;
+    border: 0 none;
+    padding: 0;
+    margin: 0 2px;
+    overflow: hidden;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form1
+{
+    float: left;
+    padding: 5px 0 5px 10px;
+    line-height: 20px;
+}
+.form1 label
+{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 10px 0 0;
+    float: left;
+}
+
+.iconlink
+{
+    margin: 5px 13px 0 0;
+    float: right;
+}
+
+.CateForm
+{
+    margin: 5px 0;
+}
+.CateForm ul
+{
+    float: left;
+}
+.CateForm ul li
+{
+    float: left;
+    border-bottom: #d0d0d0 solid 1px;
+    margin: 0 7px;
+    padding: 4px 0;
+    width: 285px;
+    height: 1%;
+}
+.CateForm label
+{
+    line-height: normal;
+}
+.CateForm label input
+{
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+}
+.CateFormCF tr
+{
+    float: left;
+}
+.CateFormCF tr td
+{
+    float: left;
+    border-bottom: #d0d0d0 solid 1px;
+    margin: 0 7px;
+    padding: 4px 0;
+    width: 285px;
+    height: 1%;
+}
+
+.CateFormCFBL tr
+{
+    /*float: left;*/
+}
+.CateFormCFBL tr td
+{
+    /*float: left;*/
+    border-bottom: #d0d0d0 solid 1px;
+    margin: 0 7px;
+    padding: 4px 0;
+    width: 285px;
+    height: 1%;
+}
+input, select
+{
+    font-size: 12px;
+    color: #5b5e64;
+    background: #fff;
+}
+select, input, textarea
+{
+    outline: 0;
+    color: #5b5e64;
+    border: 1px solid #c0c4ca;
+    padding: 3px;
+}
+p
+{
+    padding: 7px 0 10px 0;
+    margin: 0;
+    line-height: 16px;
+    text-align: left;
+}
+input[type="checkbox"]
+{
+    border: 0 none !important;
+    min-width: inherit;
+}
+input[type="select"]
+{
+    padding: 0 !important;
+}
+.Wrapper
+{
+    margin: 0;
+    padding: 0 0 10px 0;
+    width: 960px;
+}
+ImageButton
+{
+    border: 1px;
+    vertical-align: middle;
+}
+.disabledImageButton
+{
+    filter: alpha(opacity=30);
+    opacity: .30;
+    background-color: #111;
+}
+.textalign
+{
+    text-align: center;
+    color: Red;
+}
+.textalign1
+{
+    text-align: center;
+}

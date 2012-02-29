@@ -12,15 +12,15 @@ reportError = (response, error) ->
   response.write error.toString()
   response.end()
 
+url = "control.telekom.cpncloud.net"
 listResources = (request, response, parameters) ->
-  
   data = ""
   request = http.get  
-    host: 'ims01.telekom.vsp'
+    host: url
     headers: 
       'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
     port:8080
-    path: "http://ims01.telekom.vsp:8080/Provision/resource"
+    path: "http://#{url}:8080/Provision/resource"
     
   request.end()
   request.on 'response', (clientResponse) ->
@@ -37,11 +37,11 @@ getMobileConfig = (request, response, parameters)->
   id = parameters.id
   data = ""
   request = http.get  
-    host: 'ims01.telekom.vsp'
+    host: '#{url}'
     headers: 
       'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
     port:8080
-    path: "http://ims01.telekom.vsp:8080/Provision/resource/#{id}/mobileconfig"
+    path: "http://#{url}:8080/Provision/resource/#{id}/mobileconfig"
     
   request.end()
   request.on 'response', (clientResponse) ->
@@ -57,7 +57,16 @@ getMobileConfig = (request, response, parameters)->
       response.write data
       response.end()
 
-
+css = (request, response, parameters)->
+  fs.readFile "css/StyleSheet.css", (error, content) ->
+    if error
+      response.writeHead 500
+      return response.end()
+    else
+      response.writeHead 200,
+        "Content-Type":"text/html"
+      return response.end content, "utf-8"
+       
 notPresent = (formValues, required) ->
   for v in required
     unless formValues[v]
@@ -71,3 +80,4 @@ jsonResponse = (response, entity) ->
 
 exports.listResources = listResources
 exports.getMobileConfig = getMobileConfig
+exports.css = css

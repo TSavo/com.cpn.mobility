@@ -8,6 +8,8 @@ app.addPage("/",
   GET:mobileconfig_dispatcher.listResources
 ).addPage("/mobileConfig",
   GET:mobileconfig_dispatcher.getMobileConfig
+).addPage("/css/StyleSheet.css",
+  GET:mobileconfig_dispatcher.css
 ).addPage("/dieAHorribleDeath",
   GET:(request, response)->
     puts "Server is shutting down."
