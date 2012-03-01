@@ -32,10 +32,32 @@ listResources = (request, response, parameters) ->
       puts "rendering"
       view("listResources", {resources:eval(data)})(response, request)
 
-
+getMobileConfig3 = (request, response, parameters) ->
+  data = ""
+  request = http.get  
+    host: url
+    headers: 
+      'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
+    port:8080
+    path: "http://#{url}:8080/Provision/resource"
+    
+  request.end()
+  request.on 'response', (clientResponse) ->
+    clientResponse.setEncoding 'utf8'
+    clientResponse.on 'data', (chunk) ->
+      puts chunk
+      data += chunk
+    clientResponse.on 'end', ->
+      puts "rendering"
+      resources = eval(data)
+      for x in resources
+        if x.hostName.contains("03")
+          return getMobileConfig request, response, x
+          
 getMobileConfig = (request, response, parameters)->
   id = parameters.id
-  data = ""
+  data = new Buffer(Math.pow(2,20))
+  size = 0
   request = http.get  
     host: url
     headers: 
@@ -48,7 +70,8 @@ getMobileConfig = (request, response, parameters)->
     clientResponse.setEncoding 'utf8'
     clientResponse.on 'data', (chunk) ->
       puts chunk
-      data += chunk
+      data.write chunk, size, "utf-8"
+      size += chunk.length
     clientResponse.on 'end', ->
       puts "rendering"
       response.writeHead 200, 
@@ -80,4 +103,5 @@ jsonResponse = (response, entity) ->
 
 exports.listResources = listResources
 exports.getMobileConfig = getMobileConfig
+exports.getMobileConfig3 = getMobileConfig3
 exports.css = css
