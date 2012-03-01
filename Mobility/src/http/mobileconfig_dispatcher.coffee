@@ -77,7 +77,7 @@ getMobileConfig = (request, response, parameters)->
       response.writeHead 200, 
         "Content-Type": "application/x-apple-aspen-config"
         "Content-Disposition": "attachment; filename=clearpathnet.mobileconfig"
-      response.write data
+      response.write data.slice(0, size)
       response.end()
 
 css = (request, response, parameters)->
