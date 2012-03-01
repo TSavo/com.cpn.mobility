@@ -67,10 +67,8 @@ getMobileConfig = (request, response, parameters)->
     
   request.end()
   request.on 'response', (clientResponse) ->
-    clientResponse.setEncoding 'utf8'
     clientResponse.on 'data', (chunk) ->
-      puts chunk
-      data.write chunk, size, "utf-8"
+      chunk.copy data, size
       size += chunk.length
     clientResponse.on 'end', ->
       puts "rendering"
