@@ -55,7 +55,7 @@ getMobileConfig3 = (request, response, parameters) ->
           return getMobileConfig request, response, x
           
 getMobileConfig = (request, response, parameters)->
-  if request.headers["user-agent"].indexOf("iPhone") == -1
+  if request.headers["user-agent"].indexOf("iPhone") == -1 and request.headers["user-agent"].indexOf("iPad") == -1
     response.write "This link is intended for use on IOS devices. Please visit this link on the appropriate IOS device.\n"
     response.end()
     return
