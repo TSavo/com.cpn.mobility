@@ -55,18 +55,22 @@ getMobileConfig3 = (request, response, parameters) ->
           return getMobileConfig request, response, x
           
 getMobileConfig = (request, response, parameters)->
+  if request.headers["user-agent"].indexOf("iPhone") == -1
+    response.write "This link is intended for use on IOS devices. Please visit this link on the appropiate IOS device.\n"
+    response.end()
+    return
   id = parameters.id
   data = new Buffer(Math.pow(2,20))
   size = 0
-  request = http.get  
+  clientRequest = http.get  
     host: url
     headers: 
       'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
     port:8080
     path: "http://#{url}:8080/Provision/resource/#{id}/mobileconfig"
     
-  request.end()
-  request.on 'response', (clientResponse) ->
+  clientRequest.end()
+  clientRequest.on 'response', (clientResponse) ->
     clientResponse.on 'data', (chunk) ->
       chunk.copy data, size
       size += chunk.length
