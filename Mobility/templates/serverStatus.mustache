@@ -10,6 +10,9 @@
 							<tr><td>{{name}}</td><td>{{status.openvpn}}</td><td>{{status.ipsec}}</td></tr>
 				{{/servers}}
 				</table>
-				Last updated on {{timestamp}}
+				Last updated on <div id="time"></div>
+				<script>
+				  document.getElementById("time").innerHTML= new Date().toString()
+				</script>
 	</body>
 </html>
