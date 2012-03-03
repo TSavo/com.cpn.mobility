@@ -18,28 +18,29 @@ checkServers = (request, response, parameters) ->
     view("serverStatus", {servers:serverList})(response, request)
     return
   for server, i in serverList
-    data = ""
-    request = http.get
-      host: server.host
-      auth: "admin:password"
-      port:80
-      path: "/cgi-bin/diag"
-    request.end()
-    request.on "error", ->
-      puts "error"
-      barrier.join()
-    request.on "response", (clientResponse) ->
-      puts "response"
-      clientResponse.setEncoding "utf8"
-      clientResponse.on "data", (chunk) ->
-        data += chunk
-      clientResponse.on "end", ->
-        puts data
-        if(data.indexOf("openvpn is enabled and running") > -1)
-          server.status.openvpn = "Working"
-        if(data.indexOf("ipsec is enabled and running") > -1)
-          server.status.ipsec = "Working"
+    do(server, i)->
+      data = ""
+      request = http.get
+        host: server.host
+        auth: "admin:password"
+        port:80
+        path: "/cgi-bin/diag"
+      request.end()
+      request.on "error", ->
+        puts "error"
         barrier.join()
+      request.on "response", (clientResponse) ->
+        puts "response"
+        clientResponse.setEncoding "utf8"
+        clientResponse.on "data", (chunk) ->
+          data += chunk
+        clientResponse.on "end", ->
+          puts i
+          if(data.indexOf("openvpn is enabled and running") > -1)
+            serverList[i].status.openvpn = "Working"
+          if(data.indexOf("ipsec is enabled and running") > -1)
+            serverList[i].status.ipsec = "Working"
+          barrier.join()
         
 url = "ims01.telekom.vsp"
 listResources = (request, response, parameters) ->
