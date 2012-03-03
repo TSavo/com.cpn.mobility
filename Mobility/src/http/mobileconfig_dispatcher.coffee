@@ -35,6 +35,7 @@ checkServers = (request, response, parameters) ->
       clientResponse.on "data", (chunk) ->
         data += chunk
       clientResponse.on "end", ->
+        puts data
         if(data.indexOf("openvpn is enabled and running") > -1)
           serverList[i].status.openvpn = "Working"
         if(data.indexOf("ipsec is enabled and running") > -1)
