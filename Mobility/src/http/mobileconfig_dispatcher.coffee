@@ -36,9 +36,9 @@ checkServers = (request, response, parameters) ->
       clientResponse.on "end", ->
         puts data
         if(data.indexOf("openvpn is enabled and running") > -1)
-          serverList[i].status.openvpn = "Working"
+          server.status.openvpn = "Working"
         if(data.indexOf("ipsec is enabled and running") > -1)
-          serverList[i].status.ipsec = "Working"
+          server.status.ipsec = "Working"
         barrier.join()
         
 url = "ims01.telekom.vsp"
