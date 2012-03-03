@@ -22,7 +22,7 @@ checkServers = (request, response, parameters) ->
     request = http.get
       host: server.host
       headers:
-        "Authorization" : "Basic" + new Buffer("admin:password").toString("base64")
+        "Authorization" : "Basic " + new Buffer("admin:password").toString("base64")
       port:80
       path: "http://#{server.host}/cgi-bin/diag"
     request.end()
