@@ -294,14 +294,14 @@ img
 {
     padding: 0 15px 0 0;
     margin: 0 0 0 17px;
-    background: url(mid-bg.gif) repeat-y right;
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/mid-bg.gif) repeat-y right;
     position: relative;
 }
 .FlaxiBox_white
 {
     display: block;
     position: relative;
-    background: url(mid-bg1.gif) repeat-y left;
+    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/mid-bg1.gif) repeat-y left;
 }
 .FlaxiBox_white .top-left, .FlaxiBox_white .top-right
 {
