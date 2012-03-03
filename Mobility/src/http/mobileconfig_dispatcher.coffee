@@ -15,7 +15,7 @@ reportError = (response, error) ->
 checkServers = (request, response, parameters) ->
   serverList = [{name:"vcg.00000001.telekom.vsp", host:"10.30.0.20", status:{working:true, openvpn:"DOWN", ipsec:"DOWN"}}, {name:"vcg.00000002.telekom.vsp", host:"10.30.0.22", status:{working:true, openvpn:"DOWN", ipsec:"DOWN"}}, {name:"vcg.00000003.telekom.vsp", host:"10.30.0.30", status:{working:true, openvpn:"DOWN", ipsec:"DOWN"}}]
   ThreadBarrier barrier = new ThreadBarrier 3, ->
-    view("serverStatus", {servers:serverList})(response, request)
+    view("serverStatus", {servers:serverList, timestamp:new Date().toString()})(response, request)
     return
   for server, i in serverList
     do(server, i)->
