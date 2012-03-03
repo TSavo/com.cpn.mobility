@@ -124,6 +124,9 @@ class SafeAssert
   
   isTrue : (value, message) ->
     @ok value, message
+  
+  isFalse : (value, message) ->
+    @ok !value, message
     
   equal : (actual, expected, message) ->
     try
@@ -217,7 +220,7 @@ class SafeAssert
    
   
   isError : (value, message) ->
-    if assert.ifError(value)
+    if value == null
       @fail(message)
     else
       ++@succeeded

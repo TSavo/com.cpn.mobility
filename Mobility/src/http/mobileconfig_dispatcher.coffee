@@ -12,6 +12,35 @@ reportError = (response, error) ->
   response.write error.toString()
   response.end()
 
+checkServers = (request, response, parameters) ->
+  serverList = [{name:"vcg.00000001.telekom.vsp", host:"10.30.0.20", status:{working:true, openvpn:"DOWN", ipsec:"DOWN"}}, {name:"vcg.00000002.telekom.vsp", host:"10.30.0.22", status:{working:true, openvpn:"DOWN", ipsec:"DOWN"}}, {name:"vcg.00000003.telekom.vsp", host:"10.30.0.30", status:{working:true, openvpn:"DOWN", ipsec:"DOWN"}}]
+  ThreadBarrier barrier = new ThreadBarrier 3, ->
+    view("serverStatus", {servers:serverList})(response, request)
+    return
+  for server, i in serverList
+    data = ""
+    request = http.get
+      host: server.host
+      headers:
+        "Authorization" : "Basic" + new Buffer("admin:password").toString("base64")
+      port:80
+      path: "http://#{server.host}/cgi-bin/diag"
+    request.end()
+    request.on "error", ->
+      puts "error"
+      barrier.join()
+    request.on "response", (clientResponse) ->
+      puts "response"
+      clientResponse.setEncoding "utf8"
+      clientResponse.on "data", (chunk) ->
+        data += chunk
+      clientResponse.on "end", ->
+        if(data.indexOf("openvpn is enabled and running") > -1)
+          serverList[i].status.openvpn = "Working"
+        if(data.indexOf("ipsec is enabled and running") > -1)
+          serverList[i].status.ipsec = "Working"
+        barrier.join()
+        
 url = "ims01.telekom.vsp"
 listResources = (request, response, parameters) ->
   data = ""
@@ -107,3 +136,4 @@ exports.listResources = listResources
 exports.getMobileConfig = getMobileConfig
 exports.getMobileConfig3 = getMobileConfig3
 exports.css = css
+exports.checkServers = checkServers
