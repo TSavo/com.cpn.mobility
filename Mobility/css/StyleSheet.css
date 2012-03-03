@@ -199,6 +199,7 @@ img
     width: 273px;
     height: 70px;
     display: block;
+    background: url(http://i.imgur.com/EOzmI.png) no-repeat left top;
     float: left;
 }
 .RightTop
@@ -213,6 +214,7 @@ img
     width: 429px;
     height: 38px;
     display: block;
+    background: url(http://i.imgur.com/0KXX5.png) no-repeat left top;
     float: right;
 }
 .Hlink
@@ -241,11 +243,10 @@ img
 {
     display: block;
     position: relative;
-    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/mid-bg.gif) repeat-y left;
 }
 .top-left, .top-right
 {
-    background-image: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/corners.gif);
+    background-image: url(http://i.imgur.com/CH5RW.gif);
     height: 16px;
 }
 
@@ -256,7 +257,7 @@ img
 }
 .bottom-left, .bottom-right
 {
-    background-image: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/corners.gif);
+    background-image: url(http://i.imgur.com/CH5RW.gif);
     height: 16px;
     font-size: 2px;
 }
@@ -292,18 +293,17 @@ img
 {
     padding: 0 15px 0 0;
     margin: 0 0 0 17px;
-    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/mid-bg.gif) repeat-y right;
+
     position: relative;
 }
 .FlaxiBox_white
 {
     display: block;
     position: relative;
-    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/mid-bg1.gif) repeat-y left;
 }
 .FlaxiBox_white .top-left, .FlaxiBox_white .top-right
 {
-    background-image: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/corners1.gif);
+    background-image: url(http://i.imgur.com/e5wyP.gif);
     height: 6px;
 }
 .FlaxiBox_white .top-right a.arrow
@@ -313,7 +313,7 @@ img
 }
 .FlaxiBox_white .bottom-left, .FlaxiBox_white .bottom-right
 {
-    background-image: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/corners1.gif);
+    background-image: url(http://i.imgur.com/e5wyP.gif);
     height: 6px;
     font-size: 2px;
 }
@@ -349,7 +349,6 @@ img
 {
     padding: 0 6px 0 0;
     margin: 0 0 0 6px;
-    background: url(https://demo1.telekom.cpncloud.net/App_Themes/DTDemoSky/images/mid-bg1.gif) repeat-y right;
     position: relative;
 }
 .insideCnt
