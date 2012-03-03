@@ -23,7 +23,7 @@ checkServers = (request, response, parameters) ->
       host: server.host
       auth: "admin:password"
       port:80
-      path: "http://#{server.host}/cgi-bin/diag"
+      path: "/cgi-bin/diag"
     request.end()
     request.on "error", ->
       puts "error"
