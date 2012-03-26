@@ -75,11 +75,12 @@ proxy = (request, response) ->
     response.writeHead 404
     response.write "No mapping found for hostname "
     response.close
-  clientRequest = http.get  
+  clientRequest = http.request  
     host: host
     headers: headers
     port:port
     path: request.url
+    method:request.method
   clientRequest.on "error", (e)->
     response.writeHead 404
     response.write e.message
