@@ -6,7 +6,7 @@ start = (route, handle) ->
   onRequest = (request, response) ->
     pathname = url.parse(request.url).pathname
     route handle, pathname, response, request
-  server = http.createServer(onRequest).listen 80
+  server = http.createServer(onRequest).listen 81
   puts "Server has started."
   server
 

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project default="test" basedir=".">
+<project default="compile" basedir=".">
 	<condition property="node.exec" value="tools/node/node.exe">
 	   <os family="windows"/>
 	</condition>
@@ -27,7 +27,7 @@
 		<apply executable="${node.exec}">
 			<arg value="--debug"/>
 			<fileset dir="target/">
-				<include name="**/index.js" />
+				<include name="**/request_dispatcher.js" />
 			</fileset>
 		</apply>
 	</target>
