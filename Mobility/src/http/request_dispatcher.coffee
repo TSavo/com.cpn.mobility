@@ -56,7 +56,7 @@ proxy = (request, response) ->
     process.exit(0)
     return
   mappings=
-    "nodejs\.dev\.cpncloud\.net":
+    "activate\.dev\.cpncloud\.net":
       host:"ims.dev.cpn.vsp"
       port:8080
   headers = extend request.headers,
