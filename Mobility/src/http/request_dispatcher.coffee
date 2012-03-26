@@ -95,5 +95,5 @@ proxy = (request, response) ->
 
 onRequest = (request, response) ->
   proxy request, response
-server = http.createServer(onRequest).listen 81
+server = http.createServer(onRequest).listen 80
 puts "Server has started."
