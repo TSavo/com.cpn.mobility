@@ -56,8 +56,10 @@ proxy = (request, response) ->
     process.exit(0)
     return
   mappings=
-    "activate\.dev\.cpncloud\.net":
-      host:"ims.dev.cpn.vsp"
+    ###"activate\.dev\.cpncloud\.net":###
+    "localhost":
+      ###host:"ims.dev.cpn.vsp"###
+      host:"control.dev.cpncloud.net"
       port:8080
   headers = extend request.headers,
     'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
@@ -91,10 +93,13 @@ proxy = (request, response) ->
       response.write chunk
     clientResponse.on 'end', ->
       response.end()
-  clientRequest.end()
+  request.on "data", (data)->
+    clientRequest.write data
+  request.on "end", ->
+    clientRequest.end()
       
 
 onRequest = (request, response) ->
   proxy request, response
-server = http.createServer(onRequest).listen 80
+server = http.createServer(onRequest).listen 81
 puts "Server has started."
