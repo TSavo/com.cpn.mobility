@@ -1,11 +1,9 @@
-sys = require("sys")
 dgram = require("dgram")
 forward_event = (eventstamp, remoteip, content) ->
   header = eventstamp + " " + remoteip + " " + content + "\n"
   client = dgram.createSocket("udp4")
   message = new Buffer(header)
   client.send message, 0, message.length, 514, "127.0.0.1", (err, bytes) ->
-    sys.log err if err
 
 syslog = (remoteip, content) ->
   dt = new Date()
