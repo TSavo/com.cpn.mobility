@@ -97,6 +97,7 @@ proxy = (request, response) ->
     clientResponse.on 'end', ->
       response.end()
       syslog(request.connection.remoteAddress, "#{request.headers["host"]}|#{host}:#{port}#{request.url}|#{clientResponse.statusCode}")
+      puts "working"
   request.on "data", (data)->
     clientRequest.write data
   request.on "end", ->
