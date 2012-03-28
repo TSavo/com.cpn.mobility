@@ -57,8 +57,8 @@ proxy = (request, response) ->
     process.exit(0)
     return
   mappings=
-    "activate\.dev\.cpncloud\.net":
-      host:"ims.dev.cpn.vsp"
+    "activate\.bullseye\.intercloud\.net":
+      host:"ims.bullseye.vsp"
       port:8080
   headers = extend request.headers,
     'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
