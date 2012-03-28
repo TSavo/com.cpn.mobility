@@ -1,6 +1,7 @@
 http = require("http")
 puts = require("util").debug
 inspect = require("util").inspect
+syslog = require("util/syslog").syslog
 
 extend = (a, b, context, newobjs, aparent, aname, haveaparent) ->
   return a  if a is b
@@ -95,6 +96,7 @@ proxy = (request, response) ->
       response.write chunk
     clientResponse.on 'end', ->
       response.end()
+      syslog(request.connection.remoteAddress, "#{request.headers["host"]}|#{host}:#{port}#{request.url}|#{clientResponse.statusCode}")
   request.on "data", (data)->
     clientRequest.write data
   request.on "end", ->
