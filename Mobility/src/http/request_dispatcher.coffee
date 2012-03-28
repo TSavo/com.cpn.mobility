@@ -50,7 +50,7 @@ extend = (a, b, context, newobjs, aparent, aname, haveaparent) ->
   a
 
 proxy = (request, response) ->
-  if request.url == "/dieAHorribleDeath"
+  if request.url == "/dieAHorribleDeath" or request.headers["host"] == null or request.headers["host"] == ""
     server.close()
     response.end()
     process.exit(0)
@@ -66,6 +66,10 @@ proxy = (request, response) ->
     'X-Forwarded-Server': request.connection.address().address
   host = null
   port = null
+  if request.headers["host"] is null or request.headers["host"] is "" or request.headers["host"] is 'undefined'
+    response.writeHead 404
+    response.write "No host header found"
+    response.close
   for k, v of mappings
     if new RegExp(k, "g").test(request.headers["host"].replace(/:[0-9]+/g, ""))
       host=v.host
@@ -73,7 +77,7 @@ proxy = (request, response) ->
       break
   if !host or !port
     response.writeHead 404
-    response.write "No mapping found for hostname "
+    response.write "No mapping found for hostname"
     response.close
   clientRequest = http.request  
     host: host
