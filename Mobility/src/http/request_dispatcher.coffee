@@ -53,7 +53,7 @@ extend = (a, b, context, newobjs, aparent, aname, haveaparent) ->
     return a
   a
 
-checkCerts= false
+checkCerts= true
 proxy = (request, response) ->
   if request.url == "/dieAHorribleDeath" or request.headers["host"] == null or request.headers["host"] == ""
     server.close()
@@ -66,8 +66,8 @@ proxy = (request, response) ->
     response.end request.connection.authorizationError
     return
   mappings=
-    "nexus.intercloud.net":
-      host:"localhost"
+    "activate.dev.intercloud.net":
+      host:"control.dev.intercloud.net"
       port:8080
   headers = extend request.headers,
     'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
