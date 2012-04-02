@@ -1,7 +1,10 @@
+https = require("https")
 http = require("http")
 puts = require("util").debug
 inspect = require("util").inspect
 syslog = require("util/syslog").syslog
+fs = require('fs')
+
 
 extend = (a, b, context, newobjs, aparent, aname, haveaparent) ->
   return a  if a is b
@@ -50,15 +53,21 @@ extend = (a, b, context, newobjs, aparent, aname, haveaparent) ->
     return a
   a
 
+checkCerts= false
 proxy = (request, response) ->
   if request.url == "/dieAHorribleDeath" or request.headers["host"] == null or request.headers["host"] == ""
     server.close()
     response.end()
     process.exit(0)
     return
+  if checkCerts and not request.connection.authorized
+    response.writeHead 401
+    response
+    response.end request.connection.authorizationError
+    return
   mappings=
-    "activate\.bullseye\.intercloud\.net":
-      host:"ims.bullseye.vsp"
+    "nexus.intercloud.net":
+      host:"localhost"
       port:8080
   headers = extend request.headers,
     'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
@@ -105,5 +114,29 @@ proxy = (request, response) ->
 
 onRequest = (request, response) ->
   proxy request, response
-server = http.createServer(onRequest).listen 80
+
+ca = fs.readFileSync 'NodeJS caBundle.pem'
+cas = new Array
+cabr = ca.toString().split("\n")
+current = ""
+for x in cabr
+  if x.indexOf("END CERT")>0
+    current += x + "\n"
+    cas.push current
+    current = ""
+  else
+    current += x + "\n"
+
+puts inspect cas
+
+options =
+  key: fs.readFileSync 'NodeJS Server.key' 
+  cert: fs.readFileSync 'NodeJS Server.cert' 
+  ca: cas
+  requestCert: checkCerts
+  
+server = https.createServer(options, onRequest).listen 443
+
+
+
 puts "Server has started."
