@@ -55,19 +55,21 @@ extend = (a, b, context, newobjs, aparent, aname, haveaparent) ->
 
 checkCerts= true
 proxy = (request, response) ->
-  if request.url == "/dieAHorribleDeath" or request.headers["host"] == null or request.headers["host"] == ""
+  if request.url == "/dieAHorribleDeath"
     server.close()
     response.end()
-    process.exit(0)
+    process.exit 0
     return
+  if request.headers["host"] == null or request.headers["host"] == ""
+    response.writeHead 404
+    response.end()
   if checkCerts and not request.connection.authorized
     response.writeHead 401
-    response
     response.end request.connection.authorizationError
     return
   mappings=
-    "activate.dev.intercloud.net":
-      host:"control.dev.intercloud.net"
+    "activate.bullseye.intercloud.net":
+      host:"control.bullseye.intercloud.net"
       port:8080
   headers = extend request.headers,
     'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
