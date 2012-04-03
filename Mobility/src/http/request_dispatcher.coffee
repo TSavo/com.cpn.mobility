@@ -69,7 +69,7 @@ proxy = (request, response) ->
     return
   mappings=
     "activate.bullseye.intercloud.net":
-      host:"control.bullseye.intercloud.net"
+      host:"ims.bullseye.vsp"
       port:8080
   headers = extend request.headers,
     'Authorization': 'Basic ' + new Buffer("test:test").toString('base64')
